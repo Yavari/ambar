@@ -16,6 +16,7 @@ class AutoTagger:
         self.SetSourceIdTag(AmbarFile)
         self.SetArchiveTag(AmbarFile)
         self.SetImageTag(AmbarFile)
+        self.SetFolderTag(AmbarFile)
 
         for rule in self.GetTaggingRules():
             self.ProcessTaggingRule(rule, AmbarFile)
@@ -71,6 +72,12 @@ class AutoTagger:
 
     def AddTagToAmbarFile(self, FileId, FullName, TagType, Tag):
         apiResp = self.apiProxy.AddFileTag(FileId, TagType, Tag)
+
+        
+    def SetFolderTag(self, AmbarFile):
+        name = AmbarFile['meta']['full_name']
+        folder = list(filter(None, name.split('/')))[1]
+        self.AddTagToAmbarFile(AmbarFile['file_id'], name, self.AUTO_TAG_TYPE, folder)
 
         if not apiResp.Success: 
             self.logger.LogMessage('error', 'error adding {0} tag to file {1} {2}'.format(Tag, FullName, apiResp.message))

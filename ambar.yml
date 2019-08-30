@@ -136,7 +136,7 @@ services:
     build: 
       context: ./FrontEnd
       args:
-        - FRONTEND_HOST=192.168.1.249
+        - FRONTEND_HOST=192.168.1.97
         - PORT=3000
     restart: always
     networks:
@@ -146,4 +146,4 @@ services:
     expose:
       - "3000"
     environment:
-      - api=http://192.168.1.249:8080
+      - api=http://192.168.1.97:8080

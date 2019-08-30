@@ -13,7 +13,7 @@ class AutoTagger:
     
     def AutoTagAmbarFile(self, AmbarFile):
         self.SetOCRTag(AmbarFile)
-        self.SetSourceIdTag(AmbarFile)
+        # self.SetSourceIdTag(AmbarFile)
         self.SetArchiveTag(AmbarFile)
         self.SetImageTag(AmbarFile)
         self.SetFolderTag(AmbarFile)

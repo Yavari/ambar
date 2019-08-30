@@ -18,6 +18,8 @@ RUN apt-get update && apt-get install -y \
     tesseract-ocr-nld \
     tesseract-ocr-pol \
     tesseract-ocr-swe \
+    tesseract-ocr-ara \
+    tesseract-ocr-fas \
     default-jre \
     default-jdk \
     readpst
